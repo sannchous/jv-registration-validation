@@ -37,9 +37,6 @@ public class RegistrationServiceImpl implements RegistrationService {
         if (user.getAge() < MIN_AGE) {
             throw new RegistrationException("User age should be more than 18");
         }
-        if (user.getLogin().matches(".*[!#%@^].*")) {
-            throw new RegistrationException("The login must not contain !, @, #, %, ^.");
-        }
         storageDao.add(user);
         return user;
     }

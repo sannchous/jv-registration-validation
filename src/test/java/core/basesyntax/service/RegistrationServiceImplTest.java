@@ -123,16 +123,4 @@ class RegistrationServiceImplTest {
         assertEquals(expected, actual);
         assertEquals(expected, storageDao.get("login54"));
     }
-
-    @Test
-    void register_loginContainsSomeSymbols_throwException() {
-        User firstActual = new User("oleksii#2!1", "5331256", 32);
-        User secondActual = new User("s@nchous^%55", "3458898sa", 20);
-        assertThrows(RegistrationException.class,
-                () -> registrationService.register(firstActual),
-                "Expected RegistrationException if login contain's !, @, #, %, ^.");
-        assertThrows(RegistrationException.class,
-                () -> registrationService.register(secondActual),
-                "Expected RegistrationException if login contain's !, @, #, %, ^.");
-    }
 }
